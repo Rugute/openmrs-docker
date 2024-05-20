@@ -2,3 +2,4 @@ main.env
 db
 .env
 .idea
+openmrs.war
