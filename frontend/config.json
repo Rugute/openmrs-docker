@@ -1,0 +1,729 @@
+{
+  "@openmrs/esm-login-app": {
+    "logo": {
+      "src": "https://poc-test-builds.fra1.digitaloceanspaces.com/@brand/logo_with_tagline.svg"
+    }
+  },
+  "@openmrs/esm-primary-navigation-app": {
+    "logo": {
+      "src": "https://poc-test-builds.fra1.digitaloceanspaces.com/@brand/logo_white.svg",
+      "name": "Ampath POC"
+    }
+  },
+  "@openmrs/esm-patient-programs-app": {
+    "customUrl": ""
+  },
+  "@openmrs/esm-styleguide": {
+    "Brand color #1": "#0055a5",
+    "Brand color #2": "#024D93",
+    "Brand color #3": "#0055a5"
+  },
+  "@openmrs/esm-form-entry-app": {
+    "dataSources": {
+      "monthlySchedule": true
+    }
+  },
+  "@openmrs/esm-patient-forms-app": {
+    "showRecommendedFormsTab": true,
+    "showHtmlFormEntryForms": false
+  },
+  "@openmrs/esm-patient-chart-app": {
+    "showServiceQueueFields": true,
+    "showUpcomingAppointments": true,
+    "extensionSlots": {
+      "patient-highlights-bar-slot": {
+        "remove": [
+          "patient-flag-tags",
+          "biometrics-overview-widget"
+        ]
+      },
+      "patient-chart-summary-dashboard-slot": {
+        "add": [
+          "programs-overview-widget"
+        ],
+        "remove": [
+          "patient-clinical-view-overview",
+          "immunization-overview-widget",
+          "offline-tools-patient-chart-actions-widget"
+        ]
+      },
+      "patient-chart-dashboard-slot": {
+        "remove": [
+          "clinical-view-summary-dashboard",
+          "offline-tools-patient-chart-actions-dashboard-link"
+        ]
+      }
+    },
+    "logo": {
+      "src": "https://poc-test-builds.fra1.digitaloceanspaces.com/@brand/logo_white.svg"
+    },
+    "Translation overrides": {
+      "en": {
+        "recordVitals": "Record vitals",
+        "recordVitalsAndBiometrics": "Record Vitals",
+        "Vitals & Biometrics dashboard": "Vitals",
+        "Vitals & Biometrics": "Vitals",
+        "vitalsAndBiometrics": "Vitals",
+        "vitalsAndBiometricsNowAvailable": "They are now visible on the Vitals page",
+        "vitalsAndBiometricsRecorded": "Vitals saved",
+        "vitalsAndBiometricsSaveError": "Error saving vitals"
+      }
+    }
+  },
+  "@openmrs/esm-home-app": {
+    "extensionSlots": {
+      "homepage-widgets-slot": {
+        "remove": [
+          "home-appointments"
+        ]
+      }
+    }
+  },
+  "@ampath/esm-patient-registration-app": {
+    "defaultPatientIdentifierTypes": [
+      "58a4732e-1359-11df-a1f1-0026b9348838"
+    ],
+    "address": {
+      "useAddressHierarchy": {
+        "enabled": true,
+        "useQuickSearch": true,
+        "searchAddressByLevel": true
+      }
+    },
+    "fieldConfigurations": {
+      "name": {
+        "allowUnidentifiedPatients": false,
+        "displayCapturePhoto": false
+      },
+      "gender": [
+        {
+          "value": "male"
+        },
+        {
+          "value": "female"
+        }
+      ],
+      "phone": {
+        "personAttributeUuid": "72a759a8-1359-11df-a1f1-0026b9348838"
+      },
+      "address": {
+        "useAddressHierarchy": {
+          "searchAddressByLevel": true
+        }
+      }
+    },
+    "sections": [
+      "demographics",
+      "demographics-custom",
+      "identifiers",
+      "contact",
+      "relationships",
+      "nextOfKin",
+      "careGiver"
+    ],
+    "sectionDefinitions": [
+      {
+        "id": "identifiers",
+        "name": "Identifiers",
+        "fields": [
+          "id"
+        ]
+      },
+      {
+        "id": "contact",
+        "name": "Contact Details",
+        "fields": [
+          "phone",
+          "alternatePhone",
+          "email",
+          "countryOfOrigin",
+          "countyOfOrigin",
+          "address",
+          "cityVillage",
+          "address3",
+          "address8",
+          "latitude",
+          "longitude"
+        ]
+      },
+      {
+        "id": "demographics-custom",
+        "name": "Demographics",
+        "fields": [
+          "maritalStatus",
+          "occupation",
+          "religion",
+          "highestLevelOfEducation"
+        ]
+      },
+      {
+        "id": "nextOfKin",
+        "name": "Next of Kin",
+        "fields": [
+          "nextOfKinName",
+          "nextOfKinRelationship",
+          "nextOfKinPhoneNumber",
+          "nextOfKinResidence"
+        ]
+      },
+      {
+        "id": "careGiver",
+        "name": "Care giver",
+        "fields": [
+          "careGiverName",
+          "careGiverRelationship",
+          "careGiverPhoneNumber"
+        ]
+      }
+    ],
+    "fieldDefinitions": [
+      {
+        "id": "careGiverName",
+        "type": "person attribute",
+        "uuid": "48876f06-7493-416e-855d-8413d894ea93",
+        "label": "Name"
+      },
+      {
+        "id": "careGiverRelationship",
+        "type": "person attribute",
+        "uuid": "06b0da36-e133-4be6-aec0-31e7ed0e1ac2",
+        "label": "Relationship",
+        "customConceptAnswers": [
+          {
+            "uuid": "7878e432-1359-11df-a1f1-0026b9348838",
+            "label": "Stepchild/Stepparent"
+          },
+          {
+            "uuid": "b31657ef-4784-4e22-96df-d864651aa715",
+            "label": "Peer/Patient"
+          },
+          {
+            "uuid": "af78531e-98ab-41da-be3a-6a871ecbf8c0",
+            "label": "Other non-coded/Other non-coded"
+          },
+          {
+            "uuid": "7a755398-daed-4e64-8efd-b187c661caab",
+            "label": "Nurse/Patient"
+          },
+          {
+            "uuid": "01bc0cf5-d428-427f-be13-305eb9cad7ba",
+            "label": "Guardian/Child"
+          },
+          {
+            "uuid": "7878ea18-1359-11df-a1f1-0026b9348838",
+            "label": "Sexual Partner/Sexual Partner"
+          },
+          {
+            "uuid": "7878e914-1359-11df-a1f1-0026b9348838",
+            "label": "Household Member/Head of Household"
+          },
+          {
+            "uuid": "7878e81a-1359-11df-a1f1-0026b9348838",
+            "label": "Tenant/Renter/Landlord"
+          },
+          {
+            "uuid": "7878e720-1359-11df-a1f1-0026b9348838",
+            "label": "Employee/Employer"
+          },
+          {
+            "uuid": "7878e626-1359-11df-a1f1-0026b9348838",
+            "label": "Friend/Friend"
+          },
+          {
+            "uuid": "7878e52c-1359-11df-a1f1-0026b9348838",
+            "label": "Foster Child/Foster Parent"
+          },
+          {
+            "uuid": "7878d348-1359-11df-a1f1-0026b9348838",
+            "label": "Parent/Child"
+          },
+          {
+            "uuid": "7878e338-1359-11df-a1f1-0026b9348838",
+            "label": "Cousin/Cousin"
+          },
+          {
+            "uuid": "7878e23e-1359-11df-a1f1-0026b9348838",
+            "label": "Co-wife/Co-wife"
+          },
+          {
+            "uuid": "7878e144-1359-11df-a1f1-0026b9348838",
+            "label": "Grandchild/Grandparent"
+          },
+          {
+            "uuid": "7878e040-1359-11df-a1f1-0026b9348838",
+            "label": "Child-in-law/Parent-in-law"
+          },
+          {
+            "uuid": "7878df3c-1359-11df-a1f1-0026b9348838",
+            "label": "Spouse/Spouse"
+          },
+          {
+            "uuid": "7878de42-1359-11df-a1f1-0026b9348838",
+            "label": "Caretaker/Patient"
+          },
+          {
+            "uuid": "7878dd3e-1359-11df-a1f1-0026b9348838",
+            "label": "Aunt/Uncle/Niece/Nephew"
+          },
+          {
+            "uuid": "7878dc30-1359-11df-a1f1-0026b9348838",
+            "label": "Sibling/Sibling"
+          },
+          {
+            "uuid": "7878d898-1359-11df-a1f1-0026b9348838",
+            "label": "Doctor/Patient"
+          }
+        ]
+      },
+      {
+        "id": "careGiverPhoneNumber",
+        "type": "person attribute",
+        "uuid": "bb8684a5-ac0b-4c2c-b9a5-1203e99952c2",
+        "label": "Phone Number"
+      },
+      {
+        "id": "nextOfKinName",
+        "type": "person attribute",
+        "uuid": "72a75bec-1359-11df-a1f1-0026b9348838",
+        "label": "Name"
+      },
+      {
+        "id": "nextOfKinRelationship",
+        "type": "person attribute",
+        "uuid": "5730994e-c267-426b-87b6-c152b606973d",
+        "label": "Relationship",
+        "customConceptAnswers": [
+          {
+            "uuid": "7878e432-1359-11df-a1f1-0026b9348838",
+            "label": "Stepchild/Stepparent"
+          },
+          {
+            "uuid": "b31657ef-4784-4e22-96df-d864651aa715",
+            "label": "Peer/Patient"
+          },
+          {
+            "uuid": "af78531e-98ab-41da-be3a-6a871ecbf8c0",
+            "label": "Other non-coded/Other non-coded"
+          },
+          {
+            "uuid": "7a755398-daed-4e64-8efd-b187c661caab",
+            "label": "Nurse/Patient"
+          },
+          {
+            "uuid": "01bc0cf5-d428-427f-be13-305eb9cad7ba",
+            "label": "Guardian/Child"
+          },
+          {
+            "uuid": "7878ea18-1359-11df-a1f1-0026b9348838",
+            "label": "Sexual Partner/Sexual Partner"
+          },
+          {
+            "uuid": "7878e914-1359-11df-a1f1-0026b9348838",
+            "label": "Household Member/Head of Household"
+          },
+          {
+            "uuid": "7878e81a-1359-11df-a1f1-0026b9348838",
+            "label": "Tenant/Renter/Landlord"
+          },
+          {
+            "uuid": "7878e720-1359-11df-a1f1-0026b9348838",
+            "label": "Employee/Employer"
+          },
+          {
+            "uuid": "7878e626-1359-11df-a1f1-0026b9348838",
+            "label": "Friend/Friend"
+          },
+          {
+            "uuid": "7878e52c-1359-11df-a1f1-0026b9348838",
+            "label": "Foster Child/Foster Parent"
+          },
+          {
+            "uuid": "7878d348-1359-11df-a1f1-0026b9348838",
+            "label": "Parent/Child"
+          },
+          {
+            "uuid": "7878e338-1359-11df-a1f1-0026b9348838",
+            "label": "Cousin/Cousin"
+          },
+          {
+            "uuid": "7878e23e-1359-11df-a1f1-0026b9348838",
+            "label": "Co-wife/Co-wife"
+          },
+          {
+            "uuid": "7878e144-1359-11df-a1f1-0026b9348838",
+            "label": "Grandchild/Grandparent"
+          },
+          {
+            "uuid": "7878e040-1359-11df-a1f1-0026b9348838",
+            "label": "Child-in-law/Parent-in-law"
+          },
+          {
+            "uuid": "7878df3c-1359-11df-a1f1-0026b9348838",
+            "label": "Spouse/Spouse"
+          },
+          {
+            "uuid": "7878de42-1359-11df-a1f1-0026b9348838",
+            "label": "Caretaker/Patient"
+          },
+          {
+            "uuid": "7878dd3e-1359-11df-a1f1-0026b9348838",
+            "label": "Aunt/Uncle/Niece/Nephew"
+          },
+          {
+            "uuid": "7878dc30-1359-11df-a1f1-0026b9348838",
+            "label": "Sibling/Sibling"
+          },
+          {
+            "uuid": "7878d898-1359-11df-a1f1-0026b9348838",
+            "label": "Doctor/Patient"
+          }
+        ]
+      },
+      {
+        "id": "nextOfKinPhoneNumber",
+        "type": "person attribute",
+        "uuid": "a657a4f1-9c0f-444b-a1fd-445bb91dd12d",
+        "label": "Phone Number"
+      },
+      {
+        "id": "nextOfKinResidence",
+        "type": "person attribute",
+        "uuid": "f38bd1be-c54c-4863-8497-3670292881eb",
+        "label": "Residence"
+      },
+      {
+        "id": "maritalStatus",
+        "type": "person attribute",
+        "uuid": "8d871f2a-c2cc-11de-8d13-0010c6dffd0f",
+        "label": "Marital Status",
+        "answerConceptSetUuid": "a899a9f2-1350-11df-a1f1-0026b9348838",
+        "validation": {
+          "required": "true"
+        }
+      },
+      {
+        "id": "occupation",
+        "type": "person attribute",
+        "uuid": "9e86409f-9c20-42d0-aeb3-f29a4ca0a7a0",
+        "label": "Occupation",
+        "answerConceptSetUuid": "a8a0a00e-1350-11df-a1f1-0026b9348838",
+        "validation": {
+          "required": "true"
+        }
+      },
+      {
+        "id": "highestLevelOfEducation",
+        "type": "person attribute",
+        "uuid": "352b0d51-63c6-47d0-a295-156bebee4fd5",
+        "label": "Highest Education Level",
+        "answerConceptSetUuid": "a89e48ae-1350-11df-a1f1-0026b9348838",
+        "validation": {
+          "required": "true"
+        }
+      },
+      {
+        "id": "religion",
+        "type": "person attribute",
+        "uuid": "4ae16101-cfba-4c08-9c9c-d848e6f609aa",
+        "label": "Religion",
+        "answerConceptSetUuid": "a8b03352-1350-11df-a1f1-0026b9348838",
+        "validation": {
+          "required": "true"
+        }
+      },
+      {
+        "id": "alternatePhone",
+        "type": "person attribute",
+        "uuid": "c725f524-c14a-4468-ac19-4a0e6661c930",
+        "label": "Alternative Phone Number"
+      },
+      {
+        "id": "email",
+        "type": "person attribute",
+        "uuid": "2f65dbcb-3e58-45a3-8be7-fd1dc9aa0faa",
+        "label": "Email"
+      },
+      {
+        "id": "countryOfOrigin",
+        "type": "address",
+        "label": "Country of origin",
+        "validation": {
+          "required": "true"
+        }
+      },
+      {
+        "id": "countyOfOrigin",
+        "type": "address",
+        "label": "County of origin",
+        "validation": {
+          "required": "true"
+        }
+      },
+      {
+        "id": "address1",
+        "type": "address",
+        "label": "County"
+      },
+      {
+        "id": "address2",
+        "type": "address",
+        "label": "Sub County"
+      },
+      {
+        "id": "cityVillage",
+        "type": "address",
+        "label": "Estate/Village",
+        "validation": {
+          "required": true
+        }
+      },
+      {
+        "id": "address3",
+        "type": "address",
+        "label": "Landmark"
+      },
+      {
+        "id": "address8",
+        "type": "address",
+        "label": "Address"
+      },
+      {
+        "id": "latitude",
+        "type": "address",
+        "label": "Latitude"
+      },
+      {
+        "id": "longitude",
+        "type": "address",
+        "label": "Longitude"
+      }
+    ]
+  },
+  "@openmrs/esm-patient-vitals-app": {
+    "vitals": {
+      "useFormEngine": true,
+      "formName": "AMPATH POC Triage Encounter Form v1.5",
+      "formUuid": "1b269cab-1434-49f1-b0e1-ad7c0ab2e770",
+      "encounterTypeUuid": "a44ad5e2-b3ec-42e7-8cfa-8ba3dbcf5ed7"
+    },
+    "concepts": {
+      "systolicBloodPressureUuid": "a8a65d5a-1350-11df-a1f1-0026b9348838",
+      "diastolicBloodPressureUuid": "a8a65e36-1350-11df-a1f1-0026b9348838",
+      "pulseUuid": "a8a65f12-1350-11df-a1f1-0026b9348838",
+      "temperatureUuid": "a8a65fee-1350-11df-a1f1-0026b9348838",
+      "oxygenSaturationUuid": "a8a66354-1350-11df-a1f1-0026b9348838",
+      "heightUuid": "a8a6619c-1350-11df-a1f1-0026b9348838",
+      "weightUuid": "a8a660ca-1350-11df-a1f1-0026b9348838",
+      "respiratoryRateUuid": "a8a6f71a-1350-11df-a1f1-0026b9348838",
+      "generalPatientNoteUuid": "a8a06fc6-1350-11df-a1f1-0026b9348838",
+      "midUpperArmCircumferenceUuid": "a89c6188-1350-11df-a1f1-0026b9348838"
+    },
+    "extensionSlots": {
+      "patient-chart-summary-dashboard-slot": {
+        "remove": [
+          "biometrics-overview-widget"
+        ]
+      },
+      "patient-chart-vitals-biometrics-dashboard-slot": {
+        "remove": [
+          "biometrics-details-widget"
+        ]
+      }
+    },
+    "Translation overrides": {
+      "en": {
+        "Vitals & Biometrics": "Vitals",
+        "vitalsAndBiometrics": "Vitals"
+      }
+    }
+  },
+  "@openmrs/esm-patient-biometrics-app": {
+    "concepts": {
+      "heightUuid": "a8a6619c-1350-11df-a1f1-0026b9348838",
+      "weightUuid": "a8a660ca-1350-11df-a1f1-0026b9348838",
+      "muacUuid": "a89c6188-1350-11df-a1f1-0026b9348838"
+    }
+  },
+  "@openmrs/esm-patient-orders-app": {
+    "orderEncounterType": "e481dcd3-e9f4-49ee-9612-db8d2ea6abac"
+  },
+  "@openmrs/esm-patient-medications-app": {
+    "daysDurationUnit": "a899b9c4-1350-11df-a1f1-0026b9348838"
+  },
+  "@openmrs/esm-service-queues-app": {
+    "concepts": {
+      "priorityConceptSetUuid": "a96bb422-5480-46c7-ac42-20714b47199e",
+      "defaultPriorityConceptUuid": "bbd99c12-67e9-4381-8b4c-1f231e86f8e2",
+      "emergencyPriorityConceptUuid": "8e86ff12-ec83-41e8-a534-bb410739d880",
+      "serviceConceptSetUuid": "072541a1-2e09-4ad6-8682-ceb9a307ce0c",
+      "statusConceptSetUuid": "3ab190c1-4592-421e-bc5e-5e0524c9d785",
+      "defaultStatusConceptUuid": "89d01aa5-0ab0-4626-934b-37766b4cd779",
+      "defaultTransitionStatus": "89d01aa5-0ab0-4626-934b-37766b4cd779"
+    },
+    "priorityConfigs": [
+      {
+          "conceptUuid": "8e86ff12-ec83-41e8-a534-bb410739d880",
+          "tagClassName": "tag",
+          "tagType": "red"
+      },
+      {
+          "conceptUuid": "a96bb422-5480-46c7-ac42-20714b47199e",
+          "tagClassName": "tag",
+          "tagType": "green"
+      }
+  ]
+  },
+  "@openmrs/esm-laboratory-app": {
+    "enableSendingLabTestsByEmail": true,
+    "laboratorySpecimenTypeConcept": "32fd65f2-881a-4074-9185-9dda5c870f57"
+  },
+  "@ampath/esm-preappointment-app": {
+    "basicAuthBase64": "YWRtaW46QWRtaW4xMjM="
+  },
+  "@openmrs/esm-patient-labs-app": {
+    "concepts": [
+      {
+        "conceptUuid": "a8982474-1350-11df-a1f1-0026b9348838",
+        "defaultOpen": false
+      }
+    ],
+    "orders": {
+      "labOrderableConcepts": [
+        "a8a00e1e-1350-11df-a1f1-0026b9348838"
+      ]
+    },
+    "labTestsWithOrderReasons": [
+      {
+        "labTestUuid": "a8982474-1350-11df-a1f1-0026b9348838",
+        "orderReasons": [
+          "5931c4d4-4406-4d71-b75d-2205d905cc24",
+          "a8981934-1350-11df-a1f1-0026b9348838",
+          "c6537e06-9fc2-47da-b679-e2a32824407f",
+          "a8a00158-1350-11df-a1f1-0026b9348838",
+          "a89d109c-1350-11df-a1f1-0026b9348838",
+          "a89b7c50-1350-11df-a1f1-0026b9348838"
+        ]
+      },
+      {
+        "labTestUuid": "a898fe80-1350-11df-a1f1-0026b9348838",
+        "orderReasons": [
+          "5fa91048-651b-4e66-82e5-cc047434a61d",
+          "43c9e462-6d9b-4f05-9a91-ae9fe56e86fa",
+          "369cf77d-725a-4c2b-a2f2-f2e906aa2363",
+          "68962236-c3c1-411c-9185-c4abd286598b",
+          "6a2446ca-d131-4fe4-b4a9-5611d0b64c3b",
+          "51393355-2767-4615-9095-e8bb34a2c54f"
+        ]
+      }
+    ]
+  },
+  "@ohri/openmrs-esm-ohri-hiv-app": {
+    "encounterTypes": {
+      "careAndTreatmentEncounterType": "8d5b27bc-c2cc-11de-8d13-0010c6dffd0f", 
+      "clinicalVisitEncounterType": "8d5b2be0-c2cc-11de-8d13-0010c6dffd0f",
+      "hivProgramStatusEncounterType": "a221448d-512b-4750-84bf-d29be9f802b3",
+      "htsRetrospectiveEncounterType": "9c0a7a57-62ff-4f75-babe-5835b0e921b7",
+      "art_Therapy_EncounterUUID": "74bf4fe6-8fdb-4228-be39-680a93a9cf6d",
+      "hivLabResultsEncounterType_UUID": "5544894d-8add-4521-a0ea-c124c5886c8b",
+      "deathFormEncounterType_UUID": "df55584c-1350-11df-a1f1-0026b9348838",
+      "transferOutEncounterType_UUID": "cbe2d31d-2201-44ce-b52e-fbd5dc7cff33",
+      "PatientTracingEncounterType_UUID": "df5547bc-1350-11df-a1f1-0026b9348838",
+      "ViralLoadResultsEncounter_UUID": "41af1931-184e-45f8-86ca-d42e0db0b8a1",
+      "CD4LabResultsEncounter_UUID": "96adb28e-e417-43a3-8f7d-682f8af5e912",
+      "MentalHealthAssessmentEncounter_UUID": "37770eca-8a2f-48d6-b3c8-54af0fa989c2",
+      "PatnerNotificationEncounterType_UUID": "975ae894-7660-4224-b777-468c2e710a2a",
+      "PeadsDisclosureEncounterType_UUID": "4e9be046-f8aa-4d1d-9c00-102cb40eb1a0",
+      "ServiceDeliveryEncounterType_UUID": "62ee5922-a229-48d3-a1da-875c1ffa9436",
+      "ContactTracingEncounterType_UUID": "570e9e42-4306-41dc-9bf8-634bbc70a524",
+      "IntimatePartnerEncounterType_UUID": "881fff34-b4a9-4d11-b2f5-a8a23a9f402b"
+    },
+    "formNames": {
+      "ServiceEnrolmentFormName": "AMPATH POC Adult Initial Encounter Form v1.5",
+      "ClinicalVisitFormName": "AMPATH POC Adult Return Visit Form v1.8",
+      "HIVTestingFormName": "AMPATH POC HTS Eligibility Screening Form v1.0",
+      "HTSPreTestFormName": "HTS Pre-Test Counselling",
+      "ARTTherapyFormName": "ART Therapy Form",
+      "deathFormName": "AMPATH POC Death Reporting Form V1.0",
+      "TransferOutFormName": "AMPATH POC Transfer out form v1.0",
+      "PatientTracingFormName": "AMPATH POC Defaulter Tracing Form v1.1",
+      "IntimatePartnerFormName": "Intimate Partner Violence Form",
+      "ContactTracingFormName": "Contact Tracing Form",
+      "ServiceDeliveryFormName": "Service Delivery Model Form",
+      "DisclosureFormName": "AMPATH POC Pediatric Disclosure Form V1.0",
+      "PartnerNotificationFormName": "POC HIV Family/Partner History Form v1.0",
+      "MentalHealthFormName": "AMPATH POC Mental Health Screening Form v1.2",
+      "CD4LabResultsFormName": "CD4 Lab Result",
+      "ViralLoadRequestFormName": "POC Viral load request",
+      "ExpressVisitFormName": "AMPATH POC Medication Refill Encounter Form v1.3"
+    },
+    "obsConcepts": {
+      "patientTypeEnrollmentConcept": "a89eea66-1350-11df-a1f1-0026b9348838",
+      "populationCategoryConcept": "bbc2e048-0db6-4c22-a951-dab66b1243f9",
+      "keyPopulationTypeConcept": "93aa3f1d-1c39-4196-b5e6-8adc916cd5d6",
+      "priorityPopulationTypeConcept": "8b0fa615-39c7-40ba-ad06-579ae540c6a5",
+      "dateOfHIVDiagnosisConcept": "6d557eec-82f7-4840-a865-a02ac69d93a5",
+      "entryPointConcept": "a8a17e48-1350-11df-a1f1-0026b9348838",
+      "re_enrolmentDateConcept": "edda0fe9-73ba-4dbe-8739-dd8d0a8f1700",
+      "freeTextCommentConcept": "a8a06fc6-1350-11df-a1f1-0026b9348838",
+      "dateOfEncounterConcept": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "visitTypeConcept": "a89ff9a6-1350-11df-a1f1-0026b9348838",
+      "regimenConcept": "a899cf5e-1350-11df-a1f1-0026b9348838",
+      "expressCareProgramStatusConcept": "59f21b48-ccf9-40b8-9fcb-92bdbf90a4dd",
+      "returnVisitDateConcept": "5096AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "tbScreeningOutcome": "02ad9357-b996-4530-b1a4-aff91a105383",
+      "opportunisticInfectionConcept": "0ac4af8a-1b8e-4404-b445-c0471d6f7576",
+      "generalTreatmentStatusConcept": "7c579743-5ef7-4e2c-839f-5b95597cb01c",
+      "hivTestResultConceptUUID": "a89c6c64-1350-11df-a1f1-0026b9348838",
+      "htsStrategyUUID": "1219f85c-31dd-4212-92ac-77926fa5ba03",
+      "dateOfHIVTestingConceptUUID": "64807fb6-0ca3-4def-a62a-2d5f66c4328a",
+      "artTherapyDateTime_UUID": "a89d200a-1350-11df-a1f1-0026b9348838",
+      "regimenLine_UUID": "04616f5d-b961-4f41-bbd7-bcc0dd235577",
+      "therapyPlanConcept": "a89b75d4-1350-11df-a1f1-0026b9348838",
+      "artStopDateUUID": "a89ec270-1350-11df-a1f1-0026b9348838",
+      "switchDateUUID": "164516AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "substitutionDateUUID": "164431AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "dateRestartedUUID": "a91d9850-6c5c-4742-bff5-06509d9c9840",
+      "switchReasonUUID": "f19c321f-95b3-47dd-b1cb-07965ccc2cd0",
+      "substituteReasonUUID": "7f0d1dfd-cbcd-468b-b489-f153045cb3a9",
+      "stopReasonUUID": "a89b7110-1350-11df-a1f1-0026b9348838",
+      "hivCD4Result_UUID": "a896cce6-1350-11df-a1f1-0026b9348838",
+      "hivCD4Count_UUID": "a8a8bb18-1350-11df-a1f1-0026b9348838",
+      "hivDeathDate_UUID": "a89df3d6-1350-11df-a1f1-0026b9348838",
+      "causeOFDeath_UUID": "a89df750-1350-11df-a1f1-0026b9348838",
+      "deathSpecific_UUID": "e329cdf4-4eeb-4821-85ec-80ec4b503de0",
+      "receivingFacility_UUID": "6434322f-d050-4764-8c00-741e20c4c9e1",
+      "TransferOutDate_UUID": "17b4b527-99a1-4b7b-a426-0ea8407d8334",
+      "verified_UUID": "797e0073-1f3f-46b1-8b1a-8cdad134d2b3",
+      "dateOfEventConcept": "bb85532e-8f7e-476f-81d7-5580e0385852",
+      "contactMethodConcept": "a89dea80-1350-11df-a1f1-0026b9348838",
+      "ContactOutcome_UUID": "7c579743-5ef7-4e2c-839f-5b95597cb01c",
+      "PhysicalAbuse_UUID": "8fca5b8a-0674-49e5-8111-003db067ee22",
+      "EmotionalAbuse_UUID": "374a34e2-71a0-4221-b59e-8d50721330ee",
+      "SexualAbuse_UUID": "920709bc-dde6-4d21-863e-851e63c084e4",
+      "ContactTracingOutcome_UUID": "3ee34cf8-c735-4531-98ac-07ea199082b1",
+      "CommunityDSDModel_UUID": "f930b22e-8b8e-4b8c-8d19-4c34a5d34a5e",
+      "DSDStatus_UUID": "59f21b48-ccf9-40b8-9fcb-92bdbf90a4dd",
+      "DisclosureDate_UUID": "85fbdcc8-8dbc-40a9-b85f-5d1bfe1ab63d",
+      "DisclosureStage_UUID": "a8a46428-1350-11df-a1f1-0026b9348838",
+      "IndexHIVStatus_UUID": "a8a46428-1350-11df-a1f1-0026b9348838",
+      "FirstName_UUID": "2b0b8aeb-d023-49cc-84cb-8415e1c4a9cd",
+      "Relationship_UUID": "80b54a43-2c27-4c95-9f1c-da14581a1c8e",
+      "LittleInterestConcept_UUID": "0975c82b-7905-446f-bd16-2f5e373543db",
+      "DepressionConcept_UUID": "fa7f8ebd-449d-4f09-a5ed-fd9c05302c67",
+      "PoorAppetiteConcept_UUID": "bc0bfec9-72b9-4cd1-85e5-289629443e09",
+      "PoorConcentrationConcept_UUID": "c3b17b63-9f68-4265-8c5c-ac159360348b",
+      "Cd4LabResultDate_UUID": "163724AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "Cd4LabResultCountPercentage_UUID": "730AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "ViralLoadResultDate_UUID": "163724AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "ReasonForViralLoad_UUID": "0a98f01f-57f1-44b7-aacf-e1121650a967",
+      "ViralLoadResult_UUID": "1305AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "ViralLoadCopies_UUID": "856AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "enrolmentDate": "edda0fe9-73ba-4dbe-8739-dd8d0a8f1700",
+      "ExpressRefferalReason": "1272AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "finalPositiveHIVValueConcept": "703AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "computedHIV_StatusConcept": "9e4d6436-4040-46a3-a0ae-6dbc0acfe593",
+      "linkedToCareCodeConcept": "2bf2a177-da8a-4033-8b7c-62577d0dc00c",
+      "linkedToCareYesValueConcept": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    }
+  }
+}

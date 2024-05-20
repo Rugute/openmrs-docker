@@ -18,8 +18,15 @@ ENV OPENMRS_NAME=""
 # Create database and setup openmrs db user
 COPY openmrs.war /root/temp/
 RUN mkdir -p ${OPENMRS_HOME}
-RUN apt-get update && apt-get install -y mysql-client libxml2-utils openjdk-8-jdk \
-    && mkdir -p /root/temp/modules
+# Add the following lines to update the sources.list
+# Update sources.list to use the archive.debian.org URL
+RUN echo "deb http://archive.debian.org/debian stretch main contrib non-free" > /etc/apt/sources.list && \
+    echo "deb http://archive.debian.org/debian-security stretch/updates main contrib non-free" >> /etc/apt/sources.list && \
+    echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid-until && \
+    apt-get update && \
+    apt-get install -y mysql-client libxml2-utils openjdk-8-jdk && \
+    mkdir -p /root/temp/modules
+
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
       cron rsyslog \
@@ -38,6 +45,8 @@ COPY ./ScheduledGC ScheduledGC
 EXPOSE 8080
 # Add microfrontend assets
 ADD microfrontends /root/temp/microfrontends
+# Add spa frontend assets
+ADD microfrontends /root/temp/frontend
 # Setup openmrs, optionally load demo data, and start tomcat
 COPY run.sh /run.sh
 ENTRYPOINT ["/run.sh"]
