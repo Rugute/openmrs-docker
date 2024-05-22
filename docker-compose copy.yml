@@ -9,7 +9,7 @@ version: "3.7"
 #    graphic logo is a trademark of OpenMRS Inc.
 services:
   amrs:
-    container_name: amrs_o3_prod
+    container_name: amrs_o3_prod_3.X
     #image: erugut/openmrs:openmrs-2.6.0
     image: erugut/openmrs:openmrs-2.6.0-tomcat9-jdk8
     env_file: main.env

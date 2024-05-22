@@ -20,41 +20,49 @@ if [ -d "/root/temp" ]; then
     echo "connection.password=${OPENMRS_DB_PASS}" >> /root/temp/openmrs-runtime.properties
     mkdir -pv "${OPENMRS_HOME}/${OPENMRS_NAME}"
     mkdir -pv "${OPENMRS_HOME}/${OPENMRS_NAME}/frontend"
-    cp /root/temp/openmrs-runtime.properties "${OPENMRS_HOME}/${OPENMRS_NAME}/${OPENMRS_NAME}-runtime.properties" || { echo "Failed to copy runtime properties"; exit 1; }
-    echo "${OPENMRS_HOME}/${OPENMRS_NAME}/${OPENMRS_NAME}-runtime.properties" 
-   
+    cp /root/temp/openmrs-runtime.properties "${OPENMRS_HOME}/${OPENMRS_NAME}/${OPENMRS_NAME}-runtime.properties"
+    
+    # Ensure the context path is correctly formatted without invalid characters
+    OPENMRS_CONTEXT_PATH=$(echo "${OPENMRS_CONTEXT_PATH}" | tr -d '"')
+    CONTEXT_PATH="/${OPENMRS_CONTEXT_PATH}"
+    
     # Deploy the web application with the corrected context path
-    cp /root/temp/openmrs.war "${CATALINA_HOME}/webapps/${OPENMRS_NAME}.war" || { echo "Failed to copy openmrs.war"; exit 1; }
+    cp /root/temp/openmrs.war "${CATALINA_HOME}/webapps/${OPENMRS_CONTEXT_PATH}.war"
     
     # Copy base/dependency modules to module folder
     echo "Copying module dependencies and reference application modules..."
     export OPENMRS_MODULES="${OPENMRS_HOME}/${OPENMRS_NAME}/modules"
     rm -rf "${OPENMRS_HOME}/${OPENMRS_NAME}/modules/"
     mkdir -pv "$OPENMRS_MODULES"
-    cp /root/temp/modules/*.omod "$OPENMRS_MODULES" || { echo "Failed to copy modules"; exit 1; }
+    cp /root/temp/modules/*.omod "$OPENMRS_MODULES"
     rm -rf "${OPENMRS_HOME}/${OPENMRS_NAME}/.openmrs-lib-cache/"
     echo "Modules copied."
     
     # Setup microfrontends
     echo "Setting up microfrontends"
-    echo "${OPENMRS_HOME}/${OPENMRS_NAME} Tuko Hapa"
-    cp -r /root/temp/microfrontends/* "${OPENMRS_HOME}/${OPENMRS_NAME}/frontend/" || { echo "Failed to copy microfrontends"; exit 1; }
-    cp /root/temp/microfrontends/import-map.json "${OPENMRS_HOME}/${OPENMRS_NAME}/frontend/import-map.json" || { echo "Failed to copy import-map.json"; exit 1; }
+    ls /root/temp/microfrontends
+    cp -r /root/temp/microfrontends/* "${OPENMRS_HOME}/${OPENMRS_NAME}/frontend/"
+    cp /root/temp/microfrontends/import-map.json "${OPENMRS_HOME}/${OPENMRS_NAME}/frontend/import-map.json"
+    ls "${OPENMRS_HOME}/${OPENMRS_NAME}/frontend/"
     
     # Cleanup temp files
-    rm -r /root/temp || { echo "Failed to remove temp files"; exit 1; }
+    rm -r /root/temp
 fi
+
+# Function to setup OpenMRS
+
 
 # Setup custom memory options for Tomcat
 export JAVA_OPTS="-Dfile.encoding=UTF-8 -server -Xms256m -Xmx100g  -XX:PermSize=256m -XX:MaxPermSize=100g"
 
-# Start rsyslog and cron services if needed
-# service rsyslog start || { echo "Failed to start rsyslog"; exit 1; }
-# service cron start || { echo "Failed to start cron"; exit 1; }
+# Start rsyslog and cron services
+#service rsyslog start
+#service cron start
 
 # Start Tomcat
 echo "Starting Tomcat..."
-$CATALINA_HOME/bin/catalina.sh run || { echo "Failed to start Tomcat"; exit 1; }
+#$CATALINA_HOME/bin/startup.sh
+$CATALINA_HOME/bin/catalina.sh run
 
 # Tail Tomcat logs to keep the container running
-tail -f $CATALINA_HOME/logs/catalina.out || { echo "Failed to tail logs"; exit 1; }
+#tail -f $CATALINA_HOME/logs/catalina.out

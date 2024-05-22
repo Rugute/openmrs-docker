@@ -9,13 +9,12 @@ version: "3.7"
 #    graphic logo is a trademark of OpenMRS Inc.
 services:
   amrs:
-    container_name: amrs_o3_prod
-    #image: erugut/openmrs:openmrs-2.6.0
+    container_name: amrs_o3_staging
     image: erugut/openmrs:openmrs-2.6.0-tomcat9-jdk8
     env_file: main.env
     volumes:
-      - /media/data/amrs_o3_prod:/root/.OpenMRS
+      - /media/data/amrs_o3_prod/staging:/root/.OpenMRS
     restart: "always"
     ports:
-      - "8083:8080"
+      - "8084:8080"
     #restartPolicy: Always
