@@ -1,18 +1,20 @@
-version: "2"
+version: "3.7"
+
+#    This Source Code Form is subject to the terms of the Mozilla Public License,
+#    v. 2.0. If a copy of the MPL was not distributed with this file, You can
+#    obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+#    the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+#
+#    Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+#    graphic logo is a trademark of OpenMRS Inc.
 services:
   amrs:
-    container_name: ampath_openmrs2.6.0
-    image: erugut/ampath-ioms:openmrs-2.6.0
+    container_name: amrs_o3_prod
+    image: erugut/openmrs:openmrs-2.6.0
     env_file: main.env
     volumes:
-      - /media/data/amrs_prod/test:/root/.OpenMRS
-      #- /opt/amrs/data:/root/.OpenMRS
-    restart: unless-stopped
-    # deploy:
-    #   mode: replicated
-    #   replicas: 1
-    #   placement:
-    #     constraints:
-    #      - node.hostname == upgrade1
+      - /media/data/amrs_o3_prod:/root/.OpenMRS
+    restart: "always"
     ports:
-      - 8082:8080
+      - "8083:8080"
+    #restartPolicy: Always

@@ -1,0 +1,19 @@
+version: "2"
+services:
+  amrs:
+    container_name: ampath_openmrs2.6.0-3.X
+    #image: erugut/ampath-ioms:openmrs-2.6.0 #For Tomcat 7 and OpenMRS.war 2.4
+    image: erugut/openmrs:openmrs-2.6.0-tomcat9-jdk8
+    env_file: main.env
+    volumes:
+      - /media/data/amrs_prod/test:/root/.OpenMRS
+      #- /opt/amrs/data:/root/.OpenMRS
+    restart: "always"
+    # deploy:
+    #   mode: replicated
+    #   replicas: 1
+    #   placement:
+    #     constraints:
+    #      - node.hostname == upgrade1
+    ports:
+      - 8082:8080
